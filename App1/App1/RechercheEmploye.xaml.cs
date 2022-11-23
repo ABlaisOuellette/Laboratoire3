@@ -51,6 +51,12 @@ namespace App1
         private void btRecherchePrenom_Click(object sender, RoutedEventArgs e)
         {
             Boolean valide = true;
+
+            if (tbxPrenom.Text == "")
+            {
+                valide = false;
+            }
+
             if (valide)
             {
 
@@ -61,6 +67,11 @@ namespace App1
         private void btRechercheNom_Click(object sender, RoutedEventArgs e)
         {
             Boolean valide = true;
+
+            if (tbxNom.Text == "")
+            {
+                valide = false;
+            }
             if (valide)
             {
 
