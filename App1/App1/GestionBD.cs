@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.UI.Xaml.Controls;
 using MySql.Data.MySqlClient;
 
 namespace App1
@@ -27,7 +28,7 @@ namespace App1
             return gestionBD;
         }
 
-        // Employe
+        // AFFICHER TOUT LES EMPLOYES
         public ObservableCollection<Employes> GetEmployes()
         {
 
@@ -52,7 +53,7 @@ namespace App1
 
             return liste;
         }
-        // recherche nom
+        // recherche PAR UN NOM
         public ObservableCollection<Employes> rechercheNom(string valeur)
         {
 
@@ -86,7 +87,7 @@ namespace App1
 
             return liste;
         }
-        //recherche Prenom
+        //recherche PAR UN PRENOM
         public ObservableCollection<Employes> recherchePrenom(string valeur)
         {
 
@@ -121,7 +122,7 @@ namespace App1
             return liste;
         }
 
-
+        // AJOUTER UN EMPLOYE   
         public void ajouterEmployes(Employes m)
         {
             int retour;
@@ -155,7 +156,7 @@ namespace App1
 
 
 
-        // Trajet 
+        // Ajouter un Trajet 
 
         public void ajouterProjet(Projets m)
         {
@@ -188,6 +189,72 @@ namespace App1
                 if (con.State == System.Data.ConnectionState.Open)
                     con.Close();
             }
+        }
+
+        // AFFICHER TOUT LES PROJETS
+        public ObservableCollection<Projets> GetProjets()
+        {
+
+            ObservableCollection<Projets> liste = new ObservableCollection<Projets>();
+            liste.Clear();
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from projet";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                liste.Add(new Projets(r.GetString(0),
+
+                    r.GetString(1),
+                    r.GetInt32(2),
+                    r.GetString(3),
+                    r.GetString(4)));
+                    
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        //RECHERCHE PAR DATE PROJET
+        public ObservableCollection<Projets> rechercheProjetDate(DatePicker valeur)
+        {
+
+            // convertir la valeur en format date
+
+            ObservableCollection<Projets> liste = new ObservableCollection<Projets>();
+            liste.Clear();
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+
+
+            commande.CommandText = "Select * from projet where debut = @valeur";
+
+
+
+            commande.Parameters.AddWithValue("@valeur", valeur);
+
+            con.Open();
+            commande.Prepare();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                liste.Add(new Projets(r.GetString(0),
+
+                    r.GetString(1),
+                    r.GetInt32(2),
+                    r.GetString(3),
+                    r.GetString(4)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
         }
     }
 }
