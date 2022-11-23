@@ -43,7 +43,7 @@ namespace App1
 
         private void btnRecherche_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(typeof(RechercheEmploye));
         }
 
         private void btnAffichage_Click(object sender, RoutedEventArgs e)

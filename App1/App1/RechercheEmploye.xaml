@@ -10,7 +10,7 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
         <StackPanel>
-            <TextBlock Text="Choix de la recherche"/>
+
             <RadioButtons x:Name="choixRecherche"
                           SelectedIndex="0"
                           MaxColumns="2"
