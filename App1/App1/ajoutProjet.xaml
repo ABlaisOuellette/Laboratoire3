@@ -26,7 +26,7 @@
                         <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
                         <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
             
-                        <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,50" HorizontalAlignment="Center">
+                        <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,50" HorizontalAlignment="Center" SelectionChanged="cbEmploye_SelectionChanged">
                 
                             <!--LISTE DES EMPLOYÉS-->
             
