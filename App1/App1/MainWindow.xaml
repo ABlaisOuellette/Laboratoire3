@@ -23,7 +23,7 @@
         </StackPanel>
 
         <!--FRAME POUR AFFICHAGE DES DIFFÉRENTES PAGES-->
-        <Frame x:Name="mainFrame"></Frame>
+        <Frame x:Name="mainFrame" Height="auto" Width="auto"></Frame>
         
     </StackPanel>
 </Window>

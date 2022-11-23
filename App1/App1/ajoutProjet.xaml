@@ -1,0 +1,34 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. -->
+<!-- Licensed under the MIT License. See LICENSE in the project root for license information. -->
+
+<Page
+    x:Class="App1.ajoutProjet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel>
+        <!--TITRE PAGE-->
+        <TextBlock Text="Page d'ajout de projet" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+        
+        <!--STACKPANEL AVEC TOUS MES TEXTBOX POUR INFOS DES PROJETS-->
+        <!--ATTRIBUTS PROJETS numero, debut, budget, description, matEmploye-->
+        <StackPanel>
+            <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,50,0,0"></TextBox>
+            <TextBox x:Name="tbxDebut" Header="Entrer une date de début:" PlaceholderText="AAAA-MM-JJ" Margin="0,50,0,0"></TextBox>
+            <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0"></TextBox>
+            <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" ></TextBox>
+            <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" ItemsSource="liste" ></ComboBox>
+            
+            
+            <!--BOUTON POUR VALIDER ET ENREGISTRER-->
+            <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Margin="0,30,0,50"></Button>
+            
+        </StackPanel>
+        
+    </StackPanel>
+</Page>

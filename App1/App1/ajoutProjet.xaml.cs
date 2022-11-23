@@ -22,33 +22,13 @@ using Windows.Foundation.Collections;
 namespace App1
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainWindow : Window
+    public sealed partial class ajoutProjet : Page
     {
-        public MainWindow()
+        public ajoutProjet()
         {
             this.InitializeComponent();
-        }
-
-        private void btnAjoutEmploye_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Navigate(typeof(AjoutEmploye));
-        }
-
-        private void btnAjoutProjet_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Navigate(typeof(ajoutProjet));
-        }
-
-        private void btnRecherche_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAffichage_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
