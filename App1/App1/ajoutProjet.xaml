@@ -11,28 +11,34 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
-        <!--TITRE PAGE-->
-        <TextBlock Text="Page d'ajout de projet" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
-        
-        <!--STACKPANEL AVEC TOUS MES TEXTBOX POUR INFOS DES PROJETS-->
-        <!--ATTRIBUTS PROJETS numero, debut, budget, description, matEmploye-->
+    
         <StackPanel>
-            <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
-            <TextBox x:Name="tbxDebut" Header="Entrer une date de début:" PlaceholderText="AAAA-MM-JJ" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
-            <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
-            <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
-            <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,0" HorizontalAlignment="Center">
-                <x:String>un</x:String>
-                <x:String>deux</x:String>
-                <x:String>trois</x:String>
-            </ComboBox>
+            <!--TITRE PAGE-->
+            <TextBlock Text="Page d'ajout de projet" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+        
+            <!--STACKPANEL AVEC TOUS MES TEXTBOX POUR INFOS DES PROJETS-->
+            <!--ATTRIBUTS PROJETS numero, debut, budget, description, matEmploye-->
             
+            <ScrollViewer>
+                    <StackPanel>
+                        <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBox x:Name="tbxDebut" Header="Entrer une date de début:" PlaceholderText="AAAA-MM-JJ" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
             
-            <!--BOUTON POUR VALIDER ET ENREGISTRER-->
-            <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Margin="0,30,0,50"></Button>
+                        <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,50" HorizontalAlignment="Center">
+                
+                            <!--LISTE DES EMPLOYÉS-->
+            
+                        </ComboBox>
+                    
+            
+                        <!--BOUTON POUR VALIDER ET ENREGISTRER-->
+                        <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Margin="0,30,0,50"></Button>
+            
+                    </StackPanel>
+            </ScrollViewer>
             
         </StackPanel>
-        
-    </StackPanel>
+    
 </Page>

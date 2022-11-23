@@ -31,12 +31,11 @@ namespace App1
             this.InitializeComponent();
         }
 
-        //LIER MON COMBOBOX AVEC UNE LISTE D'ITEM
-        private void bindComboBox()
+        //LIER MON COMBOBOX AVEC UNE LISTE D'ITEMS
+        public void bindComboBox()
         {
-            
+            cbEmploye.ItemsSource = GestionBD.getInstance().GetEmployes();
         }
-
-
+     
     }
 }
