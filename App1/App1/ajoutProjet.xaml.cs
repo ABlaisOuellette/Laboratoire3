@@ -29,13 +29,81 @@ namespace App1
         public ajoutProjet()
         {
             this.InitializeComponent();
+            lvListe.ItemsSource = GestionBD.getInstance().GetEmployes();
         }
 
-        //LIER MON COMBOBOX AVEC UNE LISTE D'ITEMS
-        public void bindComboBox()
+        //GÉRER LA VALIDATION DES NOUVEAUX PROJETS
+        //APPELLER LA FONCTION POUR AJOUTER DANS LA TABLE PROJET
+        private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            cbEmploye.ItemsSource = GestionBD.getInstance().GetEmployes();
+
+            Boolean b = true;
+            DatePicker datePicker = new DatePicker();
+
+            tblDate.Text = datePicker.Date.Date.ToString("dd MM yyyy");
+
+            //VÉRIFICATION POUR LE NUMÉRO DE PROJET
+            if (tbxNumProjet.Text == "")
+            {
+                b = false;
+                tblAlertNum.Visibility = Visibility.Visible;
+
+            }
+
+            //VÉRIFICATION POUR LA DATE DE DÉBUT
+            if (tblDate.Text  == "")
+            {
+                b = false;
+                tblAlertDebut.Visibility = Visibility.Visible;
+            }
+            
+
+            //VÉRIFICATION POUR LE BUDGET
+            if (tbxBudget.Text == "")
+            {
+                b = false;
+                tblAlertBud.Visibility = Visibility.Visible;
+            }
+            
+
+            //VÉRIFICATION POUR LA DESCRIPTION
+
+            if (tbxDescription.Text == "")
+            {
+                b = false;
+                tblAlertDesc.Visibility = Visibility.Visible;
+            }
+            
+
+            //VÉRIFICATION POUR LE NUMEMPLOYE
+
+            if ( lvListe.SelectedIndex == -1 )
+            {
+                b = false;
+                tblAlertcb.Visibility = Visibility.Visible;
+            }
+            
+
+            if ( b == true)
+            {
+                Projets p = new Projets()
+                {
+                    Numero = tbxNumProjet.Text,
+                    Debut = datePicker,
+                    Budget = Convert.ToInt32(tbxBudget.Text),
+                    Description = tbxDescription.Text,
+                    MatEmploye = lvListe.SelectedItem.ToString()
+                };
+
+                GestionBD.getInstance().ajouterProjet(p);
+            }         
+
+            
         }
-     
+
+        
+
+
+
     }
 }

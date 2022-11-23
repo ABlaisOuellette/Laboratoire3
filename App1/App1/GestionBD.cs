@@ -208,7 +208,7 @@ namespace App1
 
                 liste.Add(new Projets(r.GetString(0),
 
-                    r.GetString(1),
+                    r.Get(1),
                     r.GetInt32(2),
                     r.GetString(3),
                     r.GetString(4)));

@@ -11,7 +11,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+    <ScrollViewer>
         <StackPanel>
             <!--TITRE PAGE-->
             <TextBlock Text="Page d'ajout de projet" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -19,26 +19,37 @@
             <!--STACKPANEL AVEC TOUS MES TEXTBOX POUR INFOS DES PROJETS-->
             <!--ATTRIBUTS PROJETS numero, debut, budget, description, matEmploye-->
             
-            <ScrollViewer>
+            
                     <StackPanel>
                         <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
-                        <TextBox x:Name="tbxDebut" Header="Entrer une date de début:" PlaceholderText="AAAA-MM-JJ" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBlock x:Name="tblAlertNum" Visibility="Collapsed" Text="Vous devez entrer un numéro!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                        
+                        <DatePicker x:Name="tbxDebut" Header="Entrer une date de début:" HorizontalAlignment="Center"></DatePicker>
+                        <TextBlock x:Name="tblDate"></TextBlock>
+                        <TextBlock x:Name="tblAlertDebut" Visibility="Collapsed" Text="Vous devez entrer une date de début!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                        
                         <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBlock x:Name="tblAlertBud" Visibility="Collapsed" Text="Vous devez entrer un budget!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                        
                         <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
-            
-                        <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,50" HorizontalAlignment="Center" SelectionChanged="cbEmploye_SelectionChanged">
+                        <TextBlock x:Name="tblAlertDesc" Visibility="Collapsed" Text="Vous devez entrer une description!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+
+                        <!--COMBOBOX POUR SÉLECTION DE L'EMPLOYÉ-->
+                        <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,50" HorizontalAlignment="Center">
                 
                             <!--LISTE DES EMPLOYÉS-->
-            
+                            <ListView x:Name="lvListe"/>
                         </ComboBox>
-                    
-            
-                        <!--BOUTON POUR VALIDER ET ENREGISTRER-->
-                        <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Margin="0,30,0,50"></Button>
+                        <TextBlock x:Name="tblAlertcb" Visibility="Collapsed" Text="Vous devez faire une selection!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+
+
+                <!--BOUTON POUR VALIDER ET ENREGISTRER-->
+                        <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Click="btnValider_Click" Margin="0,30,0,50"></Button>
             
                     </StackPanel>
-            </ScrollViewer>
+            
             
         </StackPanel>
-    
+    </ScrollViewer>
+
 </Page>

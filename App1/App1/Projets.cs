@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,21 +12,32 @@ namespace App1
         //LES ATTRIBUTS DE MA CLASSE
         //DATE DÉBUT PROJET FORMAT DATE ???
 
-        int numero;        
-        string debut;
+        string numero;        
+        DatePicker debut;
         int budget;
         string description;
-        string matEmploye;
-
-
+        string matEmploye; 
         
+        public Projets()
+        {
 
-        public int Numero 
+        }
+
+        public Projets(string numero, DatePicker debut, int budget, string description, string matEmploye)
+        {
+            this.numero = numero;
+            this.debut = debut;
+            this.budget = budget;
+            this.description = description;
+            this.matEmploye = matEmploye;
+        }
+
+        public string Numero 
         { 
           get => numero;
           set => numero = value;
         }
-        public string Debut 
+        public DatePicker Debut 
         {
          get => debut;
          set => debut = value;
