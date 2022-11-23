@@ -46,5 +46,10 @@ namespace App1
                 stackNom.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void btAjout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
