@@ -10,6 +10,7 @@ namespace App1
 {
     internal class GestionBD
     {
+        // Connectio A la BD
         MySqlConnection con;
         static GestionBD gestionBD = null;
 
@@ -26,6 +27,7 @@ namespace App1
             return gestionBD;
         }
 
+        // Employe
         public ObservableCollection<Employes> GetEmployes()
         {
 
@@ -136,6 +138,43 @@ namespace App1
                 commande.Parameters.AddWithValue("@nom", m.Nom);
                 commande.Parameters.AddWithValue("@prenom", m.Prenom);
                 commande.CommandText = "insert into employe values(@matricule, @nom, @prenom) ";
+
+                con.Open();
+                commande.Prepare();
+                retour = commande.ExecuteNonQuery();
+
+                con.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+
+
+        // Trajet 
+
+        public void ajouterProjet(Projets m)
+        {
+            int retour;
+
+
+
+            try
+            {
+                MySqlCommand commande = new MySqlCommand();
+                commande.Connection = con;
+
+
+                commande.Parameters.AddWithValue("@numero", m.Numero);
+                commande.Parameters.AddWithValue("@debut", m.Debut);
+                commande.Parameters.AddWithValue("@budget", m.Budget);
+                commande.Parameters.AddWithValue("@description", m.Description);
+                commande.Parameters.AddWithValue("@employe", m.MatEmploye);
+                commande.CommandText = "insert into projet values(@numero, @debut, @budget, @description, @employe) ";
 
                 con.Open();
                 commande.Prepare();
