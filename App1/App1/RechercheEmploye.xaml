@@ -24,6 +24,7 @@
             <TextBlock Text="Nom recherché" Width="200" />
         <TextBox x:Name="tbxNom"  Width="200"/>
         <TextBlock Text="Erreur avec le Nom" x:Name="MatE" Visibility="Collapsed"  Width="200"/>
+            <Button x:Name="btRechercheNom" Click="btRechercheNom_Click" >Recherche</Button>
         </StackPanel>
 
 
@@ -31,11 +32,14 @@
             <TextBlock Text="Prenom Recherché"/>
         <TextBox x:Name="tbxPrenom" />
         <TextBlock Text="Erreur avec le prenom" x:Name="prenomE" Visibility="Collapsed"/>
+            <Button x:Name="btRecherchePrenom" Click="btRecherchePrenom_Click" >Recherche</Button>
         </StackPanel>
-        
+
+        <StackPanel>
+            <ListView x:Name="lvListe"/>
+        </StackPanel>
 
 
-        <Button x:Name="btAjout" Click="btAjout_Click" >Ajouter</Button>
-        <TextBlock x:Name="fin" Text="" />
+            <TextBlock x:Name="fin" Text="" />
     </StackPanel>
 </Page>

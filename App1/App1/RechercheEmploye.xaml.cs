@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -46,10 +47,25 @@ namespace App1
                 stackNom.Visibility = Visibility.Collapsed;
             }
         }
-
-        private void btAjout_Click(object sender, RoutedEventArgs e)
+        //prenom
+        private void btRecherchePrenom_Click(object sender, RoutedEventArgs e)
         {
+            Boolean valide = true;
+            if (valide)
+            {
 
+                lvListe.ItemsSource = GestionBD.getInstance().recherchePrenom(tbxPrenom.Text);
+            }
+        }
+        //nom
+        private void btRechercheNom_Click(object sender, RoutedEventArgs e)
+        {
+            Boolean valide = true;
+            if (valide)
+            {
+
+                lvListe.ItemsSource = GestionBD.getInstance().rechercheNom(tbxNom.Text);
+            }
         }
     }
 }
