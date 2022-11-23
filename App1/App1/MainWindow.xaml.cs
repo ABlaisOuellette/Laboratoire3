@@ -33,7 +33,7 @@ namespace App1
 
         private void btnAjoutEmploye_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.Navigate(typeof(AjoutEmploye));
         }
 
         private void btnAjoutProjet_Click(object sender, RoutedEventArgs e)

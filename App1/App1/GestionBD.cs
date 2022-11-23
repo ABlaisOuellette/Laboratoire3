@@ -33,7 +33,7 @@ namespace App1
             liste.Clear();
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select * from maison";
+            commande.CommandText = "Select * from employe";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -64,10 +64,10 @@ namespace App1
                 commande.Connection = con;
 
 
-                commande.Parameters.AddWithValue("@id", m.Matricule);
-                commande.Parameters.AddWithValue("@categorie", m.Nom);
-                commande.Parameters.AddWithValue("@prix", m.Prenom);
-                commande.CommandText = "insert into employes values(@matricule, @nom, @prenom) ";
+                commande.Parameters.AddWithValue("@matricule", m.Matricule);
+                commande.Parameters.AddWithValue("@nom", m.Nom);
+                commande.Parameters.AddWithValue("@prenom", m.Prenom);
+                commande.CommandText = "insert into employe values(@matricule, @nom, @prenom) ";
 
                 con.Open();
                 commande.Prepare();

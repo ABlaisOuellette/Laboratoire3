@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
         <TextBlock Text="Matricule"/>
         <TextBox x:Name="tbxMatricule"/>
@@ -26,5 +26,5 @@
 
         <Button x:Name="btAjout" Click="btAjout_Click" >Ajouter</Button>
         <TextBlock x:Name="fin" Text="" />
-    </Grid>
+    </StackPanel>
 </Page>
