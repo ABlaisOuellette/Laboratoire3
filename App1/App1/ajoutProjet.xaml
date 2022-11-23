@@ -18,11 +18,15 @@
         <!--STACKPANEL AVEC TOUS MES TEXTBOX POUR INFOS DES PROJETS-->
         <!--ATTRIBUTS PROJETS numero, debut, budget, description, matEmploye-->
         <StackPanel>
-            <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,50,0,0"></TextBox>
-            <TextBox x:Name="tbxDebut" Header="Entrer une date de début:" PlaceholderText="AAAA-MM-JJ" Margin="0,50,0,0"></TextBox>
-            <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0"></TextBox>
-            <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" ></TextBox>
-            <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" ItemsSource="liste" ></ComboBox>
+            <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+            <TextBox x:Name="tbxDebut" Header="Entrer une date de début:" PlaceholderText="AAAA-MM-JJ" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+            <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+            <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,50,0,0" HorizontalAlignment="Center"></TextBox>
+            <ComboBox x:Name="cbEmploye" Header="Choisir un employe:" Margin="0,50,0,0" HorizontalAlignment="Center">
+                <x:String>un</x:String>
+                <x:String>deux</x:String>
+                <x:String>trois</x:String>
+            </ComboBox>
             
             
             <!--BOUTON POUR VALIDER ET ENREGISTRER-->

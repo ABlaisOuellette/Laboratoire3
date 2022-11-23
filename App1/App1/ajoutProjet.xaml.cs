@@ -30,5 +30,13 @@ namespace App1
         {
             this.InitializeComponent();
         }
+
+        //LIER MON COMBOBOX AVEC UNE LISTE D'ITEM
+        private void bindComboBox()
+        {
+            
+        }
+
+
     }
 }
