@@ -50,6 +50,74 @@ namespace App1
 
             return liste;
         }
+        // recherche nom
+        public ObservableCollection<Employes> rechercheNom(string valeur)
+        {
+
+
+
+            ObservableCollection<Employes> liste = new ObservableCollection<Employes>();
+            liste.Clear();
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            
+            
+            commande.CommandText = "Select * from employe where nom = @valeur";
+            
+            
+            
+            commande.Parameters.AddWithValue("@valeur", valeur);
+
+            con.Open();
+            commande.Prepare();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                liste.Add(new Employes(r.GetString(0),
+
+                    r.GetString(1),
+                    r.GetString(2)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+        //recherche Prenom
+        public ObservableCollection<Employes> recherchePrenom(string valeur)
+        {
+
+
+
+            ObservableCollection<Employes> liste = new ObservableCollection<Employes>();
+            liste.Clear();
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+
+
+            commande.CommandText = "Select * from employe where prenom = @valeur";
+
+
+
+            commande.Parameters.AddWithValue("@valeur", valeur);
+
+            con.Open();
+            commande.Prepare();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                liste.Add(new Employes(r.GetString(0),
+
+                    r.GetString(1),
+                    r.GetString(2)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
 
 
         public void ajouterEmployes(Employes m)
