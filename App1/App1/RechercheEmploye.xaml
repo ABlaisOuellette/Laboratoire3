@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="App1.RechercheEmploye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+        <StackPanel>
+            <TextBlock Text="Choix de la recherche"/>
+            <RadioButtons x:Name="choixRecherche"
+                          SelectedIndex="0"
+                          MaxColumns="2"
+                          Header="Choix de la recherche"
+                          SelectionChanged="choixRecherche_SelectionChanged">
+                <x:String>Nom</x:String>
+                <x:String>Prenom</x:String>
+            </RadioButtons>
+        </StackPanel>
+        <StackPanel x:Name="stackNom">
+            <TextBlock Text="Nom recherché" Width="200" />
+        <TextBox x:Name="tbxNom"  Width="200"/>
+        <TextBlock Text="Erreur avec le Nom" x:Name="MatE" Visibility="Collapsed"  Width="200"/>
+        </StackPanel>
+
+
+        <StackPanel x:Name="stackPrenom" Visibility="Collapsed">
+            <TextBlock Text="Prenom Recherché"/>
+        <TextBox x:Name="tbxPrenom" />
+        <TextBlock Text="Erreur avec le prenom" x:Name="prenomE" Visibility="Collapsed"/>
+        </StackPanel>
+        
+
+
+        <Button x:Name="btAjout" Click="btAjout_Click" >Ajouter</Button>
+        <TextBlock x:Name="fin" Text="" />
+    </StackPanel>
+</Page>
