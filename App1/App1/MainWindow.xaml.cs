@@ -31,9 +31,24 @@ namespace App1
             this.InitializeComponent();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void btnAjoutEmploye_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+
+        }
+
+        private void btnAjoutProjet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRecherche_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAffichage_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
