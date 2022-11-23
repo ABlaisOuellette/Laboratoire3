@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="App1.AjoutEmploye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <TextBlock Text="Matricule"/>
+        <TextBox x:Name="tbxMatricule"/>
+        <TextBlock Text="Erreur avec le matricule" x:Name="MatE" Visibility="Collapsed"/>
+
+
+        <TextBlock Text="Nom"/>
+        <TextBox x:Name="tbxNom"/>
+        <TextBlock Text="Erreur avec le Nom" x:Name="nomE" Visibility="Collapsed"/>
+
+        <TextBlock Text="Prenom"/>
+        <TextBox x:Name="tbxPrenom" />
+        <TextBlock Text="Erreur avec le prenom" x:Name="prenomE" Visibility="Collapsed"/>
+
+
+        <Button x:Name="btAjout" Click="btAjout_Click" >Ajouter</Button>
+        <TextBlock x:Name="fin" Text="" />
+    </Grid>
+</Page>

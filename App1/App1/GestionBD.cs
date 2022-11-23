@@ -40,7 +40,7 @@ namespace App1
             while (r.Read())
             {
 
-                liste.Add(new Employes(r.GetInt32(0),
+                liste.Add(new Employes(r.GetString(0),
 
                     r.GetString(1),
                     r.GetString(2)));
