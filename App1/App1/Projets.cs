@@ -1,6 +1,9 @@
 ﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.VisualBasic;
+using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +15,8 @@ namespace App1
         //LES ATTRIBUTS DE MA CLASSE
         //DATE DÉBUT PROJET FORMAT DATE ???
 
-        string numero;        
-        DatePicker debut;
+        string numero;
+        string debut;
         int budget;
         string description;
         string matEmploye; 
@@ -23,7 +26,7 @@ namespace App1
 
         }
 
-        public Projets(string numero, DatePicker debut, int budget, string description, string matEmploye)
+        public Projets(string numero, string debut, int budget, string description, string matEmploye)
         {
             this.numero = numero;
             this.debut = debut;
@@ -37,7 +40,7 @@ namespace App1
           get => numero;
           set => numero = value;
         }
-        public DatePicker Debut 
+        public string Debut 
         {
          get => debut;
          set => debut = value;

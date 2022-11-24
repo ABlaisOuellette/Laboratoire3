@@ -8,8 +8,10 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -32,15 +34,18 @@ namespace App1
             lvListe.ItemsSource = GestionBD.getInstance().GetEmployes();
         }
 
+        
+        
+
         //GÉRER LA VALIDATION DES NOUVEAUX PROJETS
         //APPELLER LA FONCTION POUR AJOUTER DANS LA TABLE PROJET
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
 
             Boolean b = true;
-            DatePicker datePicker = new DatePicker();
+           
+            
 
-            tblDate.Text = datePicker.Date.Date.ToString("dd MM yyyy");
 
             //VÉRIFICATION POUR LE NUMÉRO DE PROJET
             if (tbxNumProjet.Text == "")
@@ -51,12 +56,13 @@ namespace App1
             }
 
             //VÉRIFICATION POUR LA DATE DE DÉBUT
-            if (tblDate.Text  == "")
+            if (tblDate.SelectedDate  == null)
             {
                 b = false;
                 tblAlertDebut.Visibility = Visibility.Visible;
             }
-            
+
+            tblDate.ToString();
 
             //VÉRIFICATION POUR LE BUDGET
             if (tbxBudget.Text == "")
@@ -77,22 +83,20 @@ namespace App1
 
             //VÉRIFICATION POUR LE NUMEMPLOYE
 
-            if ( lvListe.SelectedIndex == -1 )
-            {
-                b = false;
+            
                 tblAlertcb.Visibility = Visibility.Visible;
-            }
+            
             
 
             if ( b == true)
             {
-                Projets p = new Projets()
+                Projets p = new Projets();
                 {
-                    Numero = tbxNumProjet.Text,
-                    Debut = datePicker,
-                    Budget = Convert.ToInt32(tbxBudget.Text),
-                    Description = tbxDescription.Text,
-                    MatEmploye = lvListe.SelectedItem.ToString()
+                    p.Numero = tbxNumProjet.Text;
+                    p.Debut = tblDate.Date.Date.ToString("dd MM yyyy");
+                p.Budget = Convert.ToInt32(tbxBudget.Text);
+                p.Description = tbxDescription.Text;
+                p.MatEmploye = lvListe.SelectedItem.ToString();
                 };
 
                 GestionBD.getInstance().ajouterProjet(p);
@@ -102,8 +106,5 @@ namespace App1
         }
 
         
-
-
-
     }
 }

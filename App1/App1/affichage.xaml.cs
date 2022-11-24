@@ -29,7 +29,7 @@ namespace App1
         public affichage()
         {
             this.InitializeComponent();
-
+            lvProjet.ItemsSource = GestionBD.getInstance().GetProjets();
             //LIER LES DONNÉES DE LA TABLE PROJET
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -171,7 +172,7 @@ namespace App1
 
 
                 commande.Parameters.AddWithValue("@numero", m.Numero);
-                commande.Parameters.AddWithValue("@debut", m.Debut);
+                commande.Parameters.AddWithValue("@debut", m.Debut.ToString());
                 commande.Parameters.AddWithValue("@budget", m.Budget);
                 commande.Parameters.AddWithValue("@description", m.Description);
                 commande.Parameters.AddWithValue("@employe", m.MatEmploye);
@@ -208,7 +209,7 @@ namespace App1
 
                 liste.Add(new Projets(r.GetString(0),
 
-                    r.Get(1),
+                    r.GetString(1),
                     r.GetInt32(2),
                     r.GetString(3),
                     r.GetString(4)));
