@@ -93,7 +93,7 @@ namespace App1
                 Projets p = new Projets();
                 {
                     p.Numero = tbxNumProjet.Text;
-                    p.Debut = tblDate.Date.Date.ToString("dd MM yyyy");
+                    p.Debut = tblDate.Date.Date.ToString("yyyyMMdd");
                 p.Budget = Convert.ToInt32(tbxBudget.Text);
                 p.Description = tbxDescription.Text;
                 p.MatEmploye = lvListe.SelectedItem.ToString();
