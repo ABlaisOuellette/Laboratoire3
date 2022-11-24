@@ -79,6 +79,30 @@ namespace App1
 
             return liste;
         }
+        //Get Matricule
+        public ObservableCollection<Employes> GetMatricule()
+        {
+
+            ObservableCollection<Employes> liste = new ObservableCollection<Employes>();
+            liste.Clear();
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "SELECT matricule FROM employe";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                liste.Add(new Employes(r.GetString(0)
+
+                    ));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
 
 
 
@@ -285,5 +309,8 @@ namespace App1
 
             return liste;
         }
+
+        // Get Matricule par innerjoin
+        
     }
 }

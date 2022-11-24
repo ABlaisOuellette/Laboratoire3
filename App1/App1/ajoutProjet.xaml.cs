@@ -17,6 +17,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.AppBroadcasting;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -31,7 +32,7 @@ namespace App1
         public ajoutProjet()
         {
             this.InitializeComponent();
-            lvListe.ItemsSource = GestionBD.getInstance().GetNomPrenom();
+            lvListe.ItemsSource = GestionBD.getInstance().GetMatricule();
         }
                 
 
@@ -115,6 +116,11 @@ namespace App1
                 tblAlertBud.Visibility = Visibility.Collapsed;
                 tblAlertDesc.Visibility = Visibility.Collapsed;
                 tblAlertcb.Visibility = Visibility.Collapsed;
+
+                
+
+                
+               
 
                 Projets p = new Projets();
                 {

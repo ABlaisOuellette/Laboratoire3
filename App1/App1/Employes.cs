@@ -33,6 +33,11 @@ namespace App1
             this.prenom = p;
         }
 
+        public Employes(string v)
+        {
+            this.matricule = v;
+        }
+
         public string Matricule { get => matricule; set => matricule = value; }
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
