@@ -252,7 +252,7 @@ namespace App1
             liste.Clear();
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "SELECT numero, debut, budget, description, CONCAT(nom, ' ', prenom) AS 'employe' FROM projet INNER JOIN employe ON matricule";
+            commande.CommandText = "SELECT numero, debut, budget, description, (SELECT CONCAT(nom, ' ', prenom) FROM employe where projet.employe = employe.matricule )AS 'employe' FROM projet";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
