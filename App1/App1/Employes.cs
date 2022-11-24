@@ -27,6 +27,11 @@ namespace App1
             this.prenom = prenom;
         }
 
+        public Employes(string v)
+        {
+            this.matricule = v;
+        }
+
         public string Matricule { get => matricule; set => matricule = value; }
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
@@ -34,6 +39,15 @@ namespace App1
         public override string ToString()
         {
             return matricule + " " + nom + " " + prenom;
+        
+        
+        }
+
+        public  string GetMat()
+        {
+            return matricule;
+
+
         }
     }
 }

@@ -31,7 +31,7 @@ namespace App1
         public ajoutProjet()
         {
             this.InitializeComponent();
-            lvListe.ItemsSource = GestionBD.getInstance().GetEmployes();
+            lvListe.ItemsSource = GestionBD.getInstance().GetMat();
         }
 
         
@@ -83,8 +83,12 @@ namespace App1
 
             //VÉRIFICATION POUR LE NUMEMPLOYE
 
-            
+            if (lvListe.SelectedIndex < 0)
+            {
+                b = false;
                 tblAlertcb.Visibility = Visibility.Visible;
+            }
+               
             
             
 
@@ -93,7 +97,7 @@ namespace App1
                 Projets p = new Projets();
                 {
                     p.Numero = tbxNumProjet.Text;
-                    p.Debut = tblDate.Date.Date.ToString("yyyyMMdd");
+                    p.Debut = tblDate.Date.Date.ToString("yyyy-MM-d");
                 p.Budget = Convert.ToInt32(tbxBudget.Text);
                 p.Description = tbxDescription.Text;
                 p.MatEmploye = lvListe.SelectedItem.ToString();

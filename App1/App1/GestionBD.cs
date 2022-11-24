@@ -54,6 +54,33 @@ namespace App1
 
             return liste;
         }
+
+        public ObservableCollection<Employes> GetMat()
+        {
+
+            ObservableCollection<Employes> liste = new ObservableCollection<Employes>();
+            liste.Clear();
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from employe";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+            while (r.Read())
+            {
+
+                liste.Add(new Employes(r.GetString(0)
+
+                    ));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+
+
         // recherche PAR UN NOM
         public ObservableCollection<Employes> rechercheNom(string valeur)
         {
