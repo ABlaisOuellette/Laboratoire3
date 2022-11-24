@@ -15,6 +15,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WinRT;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,8 +30,36 @@ namespace App1
         public affichage()
         {
             this.InitializeComponent();
-            lvProjet.ItemsSource = GestionBD.getInstance().GetProjets();
             //LIER LES DONNÉES DE LA TABLE PROJET
+            lvProjet.ItemsSource = GestionBD.getInstance().GetProjetsNoms();            
+        }
+
+        //EFFECTUER UNE RECHERCHE AVEC LA DATE
+        private void btnRecherche_Click(object sender, RoutedEventArgs e)
+        {
+            Boolean b = true;
+            
+            try
+            {
+                if(tbxRecherche.Text == "")
+                {
+                    b = false;
+                    tblAlertDate.Text = "Vous devez entrer une date";
+                    tblAlertDate.Visibility = Visibility.Visible;
+                }
+
+                if(b == true)
+                {
+                    lvProjet.ItemsSource = GestionBD.getInstance().rechercheProjetDate(tbxRecherche.Text);
+                }
+
+            }
+            catch(FormatException ex)
+            {
+                tblAlertDate.Text = "Vous devez entrer une date valide";
+                tblAlertDate.Visibility = Visibility.Visible;
+            }
+            
         }
     }
 }

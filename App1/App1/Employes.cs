@@ -27,9 +27,10 @@ namespace App1
             this.prenom = prenom;
         }
 
-        public Employes(string v)
+        public Employes(string n, string p)
         {
-            this.matricule = v;
+            this.nom = n;
+            this.prenom = p;
         }
 
         public string Matricule { get => matricule; set => matricule = value; }

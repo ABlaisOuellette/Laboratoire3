@@ -31,11 +31,9 @@ namespace App1
         public ajoutProjet()
         {
             this.InitializeComponent();
-            lvListe.ItemsSource = GestionBD.getInstance().GetMat();
+            lvListe.ItemsSource = GestionBD.getInstance().GetNomPrenom();
         }
-
-        
-        
+                
 
         //GÉRER LA VALIDATION DES NOUVEAUX PROJETS
         //APPELLER LA FONCTION POUR AJOUTER DANS LA TABLE PROJET
@@ -43,9 +41,7 @@ namespace App1
         {
 
             Boolean b = true;
-           
-            
-
+                       
 
             //VÉRIFICATION POUR LE NUMÉRO DE PROJET
             if (tbxNumProjet.Text == "")
@@ -64,13 +60,34 @@ namespace App1
 
             tblDate.ToString();
 
-            //VÉRIFICATION POUR LE BUDGET
+            //VÉRIFICATION POUR LE BUDGET          
+
             if (tbxBudget.Text == "")
             {
                 b = false;
                 tblAlertBud.Visibility = Visibility.Visible;
             }
-            
+
+            //VALIDER SI LE STRING PEUT ÊTRE CONVERTIE EN INT 
+
+            try
+            {
+                int valeur = Convert.ToInt32(tbxBudget.Text);
+
+                if (valeur < 10000 && valeur > 100000) 
+                {
+                    b = false;
+                    tblAlertBud.Text = "Vous devez entrer une valeur entre 10000 et 100000";
+                    tblAlertBud.Visibility = Visibility.Visible;
+                }
+            }
+            catch(FormatException ex) 
+            {
+                b= false;
+                tblAlertBud.Text = "Vous devez entrer un nombre!";
+                tblAlertBud.Visibility = Visibility.Visible;
+            }
+          
 
             //VÉRIFICATION POUR LA DESCRIPTION
 
@@ -89,21 +106,30 @@ namespace App1
                 tblAlertcb.Visibility = Visibility.Visible;
             }
                
-            
-            
+            //QUAND TOUS LES VALIDATIONS SONT VÉRIFIÉES LES TBLALERT SONT DÉSACTIVÉS ET L'OBJET PROJET EST CRÉÉ          
 
             if ( b == true)
             {
+                tblAlertNum.Visibility = Visibility.Collapsed;
+                tblAlertDebut.Visibility = Visibility.Collapsed;
+                tblAlertBud.Visibility = Visibility.Collapsed;
+                tblAlertDesc.Visibility = Visibility.Collapsed;
+                tblAlertcb.Visibility = Visibility.Collapsed;
+
                 Projets p = new Projets();
                 {
                     p.Numero = tbxNumProjet.Text;
                     p.Debut = tblDate.Date.Date.ToString("yyyy-MM-d");
-                p.Budget = Convert.ToInt32(tbxBudget.Text);
-                p.Description = tbxDescription.Text;
-                p.MatEmploye = lvListe.SelectedItem.ToString();
+                    p.Budget = Convert.ToInt32(tbxBudget.Text);
+                    p.Description = tbxDescription.Text;
+                    p.MatEmploye = lvListe.SelectedItem.ToString();
                 };
 
+
                 GestionBD.getInstance().ajouterProjet(p);
+
+                tblValidation.Text = "Enregistrement réussi!";
+                tblValidation.Visibility = Visibility.Visible;
             }         
 
             

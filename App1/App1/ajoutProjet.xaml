@@ -11,6 +11,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <!--COMMENT FAIRE FONCTIONNER LE SCROLLVIEWER ??? *******************************************-->
+    
     <ScrollViewer>
         <StackPanel>
             <!--TITRE PAGE-->
@@ -20,38 +22,42 @@
             <!--ATTRIBUTS PROJETS numero, debut, budget, description, matEmploye-->
             
             
-                    <StackPanel>
-                        <TextBox x:Name="tbxNumProjet" Header="Entrer un numéro:" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
-                        <TextBlock x:Name="tblAlertNum" Visibility="Collapsed" Text="Vous devez entrer un numéro!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                    <StackPanel Height="auto" Width="auto">
+                        <TextBox x:Name="tbxNumProjet" Header="Entrer un numero:" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBlock x:Name="tblAlertNum" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez entrer un numero!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
 
-                <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,20">
 
-                    <DatePicker Header="Date:"  x:Name="tblDate"></DatePicker>
-
+                        <DatePicker Header="Date:" x:Name="tblDate"></DatePicker>
                     
-                        <TextBlock x:Name="tblAlertDebut" Visibility="Collapsed" Text="Vous devez entrer une date de début!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
                         
-                </StackPanel>
+                        </StackPanel>
                         
-                        <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000 $" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
-                        <TextBlock x:Name="tblAlertBud" Visibility="Collapsed" Text="Vous devez entrer un budget!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                        <!--ALERTE POUR LA SELECTION DE LA DATE-->
+                        <TextBlock x:Name="tblAlertDebut" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez entrer une date de debut!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
                         
-                        <TextBox x:Name="tbxDescription" Header="Entrer une brève description:" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
-                        <TextBlock x:Name="tblAlertDesc" Visibility="Collapsed" Text="Vous devez entrer une description!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
 
-                        <!--COMBOBOX POUR SÉLECTION DE L'EMPLOYÉ-->
+                        <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000$" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBlock x:Name="tblAlertBud" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez entrer un budget!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
                         
+                        
+                        <TextBox x:Name="tbxDescription" Header="Entrer une breve description:" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
+                        <TextBlock x:Name="tblAlertDesc" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez entrer une description!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                                                
                 
-                            <!--LISTE DES EMPLOYÉS-->
-                            <ListView x:Name="lvListe"/>
+                        <!--LISTE DES EMPLOYÉS-->
+                        <ListView x:Name="lvListe" Header="Choisir un employe:" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+
+                        <TextBlock x:Name="tblAlertcb" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez faire une selection!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+
+
+                        <!--BOUTON POUR VALIDER ET ENREGISTRER-->
+                        <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Click="btnValider_Click" Margin="0,30,0,30"></Button>
                         
-                        <TextBlock x:Name="tblAlertcb" Visibility="Collapsed" Text="Vous devez faire une selection!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
+                        <!--TBL DE VALIDATION-->
+                        <TextBlock x:Name="tblValidation" Visibility="Collapsed" HorizontalAlignment="Center" Foreground="Green" Margin="0,0,0,30"/>
 
-
-                <!--BOUTON POUR VALIDER ET ENREGISTRER-->
-                        <Button x:Name="btnValider" Content="Enregistrer" HorizontalAlignment="Center" Click="btnValider_Click" Margin="0,30,0,20"></Button>
-            
-                    </StackPanel>
+            </StackPanel>
             
             
         </StackPanel>

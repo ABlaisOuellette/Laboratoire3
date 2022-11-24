@@ -12,15 +12,15 @@ namespace App1
 {
     internal class Projets
     {
-        //LES ATTRIBUTS DE MA CLASSE
-        //DATE DÉBUT PROJET FORMAT DATE ???
+        //LES ATTRIBUTS DE MA CLASSE  
 
         string numero;
         string debut;
         int budget;
         string description;
-        string matEmploye; 
+        string matricule; 
         
+        //CONSTRUCTEURS
         public Projets()
         {
 
@@ -32,8 +32,10 @@ namespace App1
             this.debut = debut;
             this.budget = budget;
             this.description = description;
-            this.matEmploye = matEmploye;
+            this.matricule = matEmploye;
         }
+
+        //ACCESSEURS
 
         public string Numero 
         { 
@@ -57,15 +59,15 @@ namespace App1
         }
         public string MatEmploye 
         { 
-          get => matEmploye;
-          set => matEmploye = value;
+          get => matricule;
+          set => matricule = value;
         }
 
         //METHODE TOSTRING()
 
         public override string ToString()
         {
-            return numero + " " + debut + " " + budget + " " + description + " " + matEmploye;
+            return numero + " " + debut + " " + budget + " " + description + " " + matricule;
         }
 
 

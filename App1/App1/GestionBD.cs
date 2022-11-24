@@ -55,21 +55,22 @@ namespace App1
             return liste;
         }
 
-        public ObservableCollection<Employes> GetMat()
+        public ObservableCollection<Employes> GetNomPrenom()
         {
 
             ObservableCollection<Employes> liste = new ObservableCollection<Employes>();
             liste.Clear();
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select * from employe";
+            commande.CommandText = "SELECT nom, prenom FROM employe";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
             while (r.Read())
             {
 
-                liste.Add(new Employes(r.GetString(0)
+                liste.Add(new Employes(r.GetString(0),
+                    r.GetString(1)
 
                     ));
             }
@@ -220,14 +221,14 @@ namespace App1
         }
 
         // AFFICHER TOUT LES PROJETS
-        public ObservableCollection<Projets> GetProjets()
+        public ObservableCollection<Projets> GetProjetsNoms()
         {
 
             ObservableCollection<Projets> liste = new ObservableCollection<Projets>();
             liste.Clear();
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select * from projet";
+            commande.CommandText = "SELECT numero, debut, budget, description, CONCAT(nom, ' ', prenom) AS 'employe' FROM projet INNER JOIN employe ON matricule";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -249,7 +250,7 @@ namespace App1
         }
 
         //RECHERCHE PAR DATE PROJET
-        public ObservableCollection<Projets> rechercheProjetDate(DatePicker valeur)
+        public ObservableCollection<Projets> rechercheProjetDate(string valeur)
         {
 
             // convertir la valeur en format date
