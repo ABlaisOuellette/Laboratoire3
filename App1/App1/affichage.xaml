@@ -11,19 +11,21 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
-        <!--TITRE PAGE-->
-        <TextBlock Text="Page d'affichage des projets" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,50"/>
+    <ScrollViewer>
+        <StackPanel>
+            <!--TITRE PAGE-->
+            <TextBlock Text="Page d'affichage des projets" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,50"/>
         
-        <!--TBX POUR EFFECTUER UNE RECHERCHE-->
-        <TextBox x:Name="tbxRecherche" Header="Effectuer une recherche:" PlaceholderText="AAAA-MM-JJ" HorizontalAlignment="Center" Margin="0,0,0,0"></TextBox>
-        <TextBlock x:Name="tblAlertDate" HorizontalAlignment="Center" Visibility="Collapsed" Margin="0,10,0,30" Foreground="red"/>
-        <!--BOUTON DE RECHERCHE-->
-        <Button x:Name="btnRecherche" Content="Rechercher" HorizontalAlignment="Center" Click="btnRecherche_Click" Margin="0,30,0,50"></Button>
+            <!--TBX POUR EFFECTUER UNE RECHERCHE-->
+            <TextBox x:Name="tbxRecherche" Header="Effectuer une recherche:" PlaceholderText="AAAA-MM-JJ" HorizontalAlignment="Center" Margin="0,0,0,0"></TextBox>
+            <TextBlock x:Name="tblAlertDate" HorizontalAlignment="Center" Visibility="Collapsed" Margin="0,10,0,30" Foreground="red"/>
+            <!--BOUTON DE RECHERCHE-->
+            <Button x:Name="btnRecherche" Content="Rechercher" HorizontalAlignment="Center" Click="btnRecherche_Click" Margin="0,30,0,50"></Button>
         
-        <!--LISTE DES DIFFÉRENTS PROJETS-->
-        <ListView x:Name="lvProjet" HorizontalAlignment="Center" VerticalAlignment="Center"></ListView>
+            <!--LISTE DES DIFFÉRENTS PROJETS-->
+            <ListView x:Name="lvProjet" HorizontalAlignment="Center" VerticalAlignment="Center"></ListView>
         
         
-    </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
