@@ -10,6 +10,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -37,25 +38,30 @@ namespace App1
         //EFFECTUER UNE RECHERCHE AVEC LA DATE
         private void btnRecherche_Click(object sender, RoutedEventArgs e)
         {
-            Boolean b = true;
+            Boolean validation;
+            DateTime dt;
+
+            validation = DateTime.TryParseExact(tbxRecherche.Text, "yyyy-MM-dd",CultureInfo.InvariantCulture,DateTimeStyles.None, out dt);
+          
             
             try
             {
-                if(tbxRecherche.Text == "")
-                {
-                    b = false;
+                if(validation == false)
+                {                    
                     tblAlertDate.Text = "Vous devez entrer une date";
                     tblAlertDate.Visibility = Visibility.Visible;
                 }
-
-                if(b == true)
+                else
                 {
+                    tblAlertDate.Visibility = Visibility.Collapsed;
                     lvProjet.ItemsSource = GestionBD.getInstance().rechercheProjetDate(tbxRecherche.Text);
                 }
+                                    
 
             }
             catch(FormatException ex)
             {
+                
                 tblAlertDate.Text = "Vous devez entrer une date valide";
                 tblAlertDate.Visibility = Visibility.Visible;
             }
