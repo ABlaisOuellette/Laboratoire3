@@ -12,7 +12,7 @@
 
         <TextBlock Text="Matricule" Width="200" />
         <TextBox x:Name="tbxMatricule"  Width="200"/>
-        <TextBlock Text="Erreur avec le matricule" x:Name="MatE" Visibility="Collapsed"  Width="200"/>
+        <TextBlock Text="Erreur avec le matricule" x:Name="MatE" Visibility="Collapsed"  Width="200" />
 
 
         <TextBlock Text="Nom"/>
