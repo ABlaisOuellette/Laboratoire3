@@ -1,0 +1,19 @@
+Laboratoire 3
+
+
+Noms des étudiants:
+
+Nathan Lafrenière  
+
+Alexandre Blais Ouellette
+
+Noms Github:
+
+nathanlafrenière
+
+ABlaisOuellette
+
+
+String de connexion:
+
+"Server=cours.cegep3r.info;Database=2130666-nathan-lafrenière;Uid=2130666;Pwd=2130666;"
