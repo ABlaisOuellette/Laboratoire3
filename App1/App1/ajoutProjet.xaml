@@ -37,7 +37,7 @@
                         <TextBlock x:Name="tblAlertDebut" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez entrer une date de debut!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
                         
 
-                        <TextBox x:Name="tbxBudget" Header="Entrer un budget:" PlaceholderText="Entre 10000 et 100000$" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBox>
+                        <NumberBox x:Name="nbBudget" Header="Entrer un budget:" Minimum="10000" Maximum="100000" PlaceholderText="Entre 10000 et 100000$" Margin="0,20,0,0" HorizontalAlignment="Center"></NumberBox>
                         <TextBlock x:Name="tblAlertBud" HorizontalAlignment="Center" Visibility="Collapsed" Text="Vous devez entrer un budget!" Foreground="Red" Margin="0,10,0,10"></TextBlock>
                         
                         

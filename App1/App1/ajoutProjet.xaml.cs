@@ -59,21 +59,15 @@ namespace App1
                 tblAlertDebut.Visibility = Visibility.Visible;
             }
 
-            tblDate.ToString();
+            tblDate.ToString();                      
 
-            //VÉRIFICATION POUR LE BUDGET          
-
-            if (tbxBudget.Text == "")
-            {
-                b = false;
-                tblAlertBud.Visibility = Visibility.Visible;
-            }
+            
 
             //VALIDER SI LE STRING PEUT ÊTRE CONVERTIE EN INT 
 
             try
             {
-                int valeur = Convert.ToInt32(tbxBudget.Text);
+                double valeur = nbBudget.Value;
 
                 if (valeur < 10000 && valeur > 100000) 
                 {
@@ -126,7 +120,7 @@ namespace App1
                 {
                     p.Numero = tbxNumProjet.Text;
                     p.Debut = tblDate.Date.Date.ToString("yyyy-MM-d");
-                    p.Budget = Convert.ToInt32(tbxBudget.Text);
+                    p.Budget = nbBudget.Value;
                     p.Description = tbxDescription.Text;
                     p.MatEmploye = lvListe.SelectedItem.ToString();
                 };

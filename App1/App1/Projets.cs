@@ -16,7 +16,7 @@ namespace App1
 
         string numero;
         string debut;
-        int budget;
+        double budget;
         string description;
         string matricule; 
         
@@ -26,7 +26,7 @@ namespace App1
 
         }
 
-        public Projets(string numero, string debut, int budget, string description, string matEmploye)
+        public Projets(string numero, string debut, double budget, string description, string matEmploye)
         {
             this.numero = numero;
             this.debut = debut;
@@ -47,7 +47,7 @@ namespace App1
          get => debut;
          set => debut = value;
         }
-        public int Budget 
+        public double Budget 
         { 
          get => budget;
          set => budget = value;
