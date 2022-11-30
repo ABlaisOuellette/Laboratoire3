@@ -94,9 +94,7 @@ namespace App1
             while (r.Read())
             {
 
-                liste.Add(new Employes(r.GetString(0)
-
-                    ));
+                liste.Add(new Employes(r.GetString(0)));
             }
             r.Close();
             con.Close();
@@ -222,7 +220,7 @@ namespace App1
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
 
-
+                m.MatEmploye.Trim();
                 commande.Parameters.AddWithValue("@numero", m.Numero);
                 commande.Parameters.AddWithValue("@debut", m.Debut.ToString());
                 commande.Parameters.AddWithValue("@budget", m.Budget);

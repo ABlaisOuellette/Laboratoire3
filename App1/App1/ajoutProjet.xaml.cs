@@ -95,6 +95,8 @@ namespace App1
 
             //VÉRIFICATION POUR LE NUMEMPLOYE
 
+            lvListe.ToString().Trim();
+
             if (lvListe.SelectedIndex < 0)
             {
                 b = false;
@@ -111,10 +113,10 @@ namespace App1
                 tblAlertDesc.Visibility = Visibility.Collapsed;
                 tblAlertcb.Visibility = Visibility.Collapsed;
 
-                
-
-                
-               
+                string matricule;
+                matricule = lvListe.SelectedItem.ToString();
+                matricule = matricule.Trim();
+                               
 
                 Projets p = new Projets();
                 {
@@ -122,7 +124,7 @@ namespace App1
                     p.Debut = tblDate.Date.Date.ToString("yyyy-MM-d");
                     p.Budget = nbBudget.Value;
                     p.Description = tbxDescription.Text;
-                    p.MatEmploye = lvListe.SelectedItem.ToString();
+                    p.MatEmploye = matricule;
                 };
 
 
